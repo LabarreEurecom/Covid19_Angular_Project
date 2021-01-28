@@ -17,7 +17,7 @@ Add News is not functional: anyone who connects with google can access this comp
 
 Improvements to do:
 
---> Fix the refresh pb just above.
---> Fix the authorization pb (challenge 2).
---> sort number with the english writing (for example: sort 88,888,888 type of number !!).
---> Add a research text zone for the table (in order to facilitate the retrieval of a country).
+ - Fix the refresh pb just above.
+ - Fix the authorization pb (challenge 2).
+ - Sort number with the english writing (for example: sort 88,888,888 type of number !!).
+ - Add a research text zone for the table (in order to facilitate the retrieval of a country).
