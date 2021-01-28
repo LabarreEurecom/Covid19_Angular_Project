@@ -1,0 +1,50 @@
+body {
+    background:rgb(245, 242, 242);
+}
+
+header {
+    height: 50px;
+    background: rgb(179, 169, 153);
+    top: 0;
+  }
+
+h4 {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 8px
+}
+
+#btn_to_change {
+    margin-right: 50px ;
+  }
+
+#add_btn {
+    margin-right: 25px ;
+}
+
+footer {
+    background: #dadada;
+    height: 25px;
+    width: 100%;
+    margin-top: 80px;
+    text-align: center;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#second_layer {
+    height: 50px;
+    text-align: center;
+    justify-content: center;
+    background: rgb(194, 191, 186);
+    margin: auto;
+}
+
+button {
+    margin-top: 6px;
+}

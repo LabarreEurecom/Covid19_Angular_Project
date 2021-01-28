@@ -1,0 +1,180 @@
+<html>
+    <body>
+        <header>
+            <div class="row">
+                <div class="text-left ">
+                    <button class="btn btn-info" (click)="covid19Service.signInWithGoogle()">
+                        Sign In with Google
+                    </button>
+                </div>
+
+                <h4>Welcome to you !</h4>
+
+                <div id="btn_to_change" class="text-right">
+                    <button class="btn btn-danger" (click)="covid19Service.signOut()">
+                        Sign Out
+                    </button>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div id = "second_layer" class="row">
+                <div class="text-center">
+                    <button class="btn btn-info" 
+                    (click)=
+                    "covid19Service.loadingGlobalsWorldwideSummary(); 
+                    covid19Service.loadingCountriesWorldwideSummary();
+                    covid19Service.loadingworldwideData()">
+                          Update Data
+                    </button>
+                    <button 
+                    class="btn btn-danger" 
+                    (click)="covid19Service.goToAddNews()">
+                        Add News
+                    </button>
+                </div>
+            </div>
+            <div class="mt-4 mb-4 text-center">
+                <h1 class="mb-3">
+                    <img
+                    src="https://firebasestorage.googleapis.com/v0/b/covid19-f13aa.appspot.com/o/Favicon%20covid.jpg?alt=media&token=dca429bc-7c7a-49ab-94b4-48c7059ff98a"
+                    alt="covid favicon"
+                    height="60"
+                    width="60"
+                     />
+                    Covid-19 :</h1>
+                <h3 class="mb-3">
+                    Live Updates and Statistics :
+                </h3>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                <tr class="table-secondary">
+                    <th scope="col">Corona Virus Worldwide Summary</th>
+                    <th class="text-center" scope="col">Figures</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="table-warning">
+                    <th scope="row">Total Cases</th>
+                    <td class="text-center">{{ (complete_globals_data.TotalConfirmed)
+                        .toLocaleString('en-US', {maximumFractionDigits:2}) }}</td>
+                </tr>
+                <tr class="table-warning">
+                    <th scope="row">New Cases</th>
+                    <td class="text-center">{{ (complete_globals_data.NewConfirmed)
+                        .toLocaleString('en-US', {maximumFractionDigits:2}) }}</td>
+                </tr>
+                <tr class="table-warning">
+                    <th scope="row">Active Cases</th>
+                    <td class="text-center">{{ (complete_globals_data.TotalConfirmed - 
+                        complete_globals_data.TotalRecovered)
+                        .toLocaleString('en-US', {maximumFractionDigits:2}) }}</td>
+                </tr>
+
+                <tr class="table-primary">
+                    <th scope="row">Total Recovered</th>
+                    <td class="text-center">{{ (complete_globals_data.TotalRecovered)
+                        .toLocaleString('en-US', {maximumFractionDigits:2}) }}</td>
+                </tr>
+                <tr class="table-primary">
+                    <th scope="row">New Recovered</th>
+                    <td class="text-center">{{ (complete_globals_data.NewRecovered)
+                        .toLocaleString('en-US', {maximumFractionDigits:2}) }}</td>
+                </tr>
+                <tr class="table-primary">
+                    <th scope="row">Recovery Rate</th>
+                    <td class="text-center">{{ (complete_globals_data.TotalRecovered * 100 / 
+                        complete_globals_data.TotalConfirmed).toFixed(2) }}%</td>
+                </tr>
+
+                <tr class="table-danger">
+                    <th scope="row">Total Deaths</th>
+                    <td class="text-center">{{ (complete_globals_data.TotalDeaths)
+                        .toLocaleString('en-US', {maximumFractionDigits:2}) }}</td>
+                </tr>
+                <tr class="table-danger">
+                    <th scope="row">New Deaths</th>
+                    <td class="text-center">{{ (complete_globals_data.NewDeaths)
+                        .toLocaleString('en-US', {maximumFractionDigits:2}) }}</td>
+                </tr>
+                <tr class="table-danger">
+                    <th scope="row">Mortality Rate</th>
+                    <td class="text-center">{{ (complete_globals_data.TotalDeaths * 100 /
+                         complete_globals_data.TotalConfirmed).toFixed(2) }}%</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div>
+                <canvas class="mt-5" id="pieChart"></canvas>
+            </div>
+
+            <div>
+                <canvas class="mt-5" id="barChart"></canvas>
+            </div>
+
+            <div>
+                <canvas class="mt-5" id="lineChart"></canvas>
+            </div>
+
+            <div class=" mt-5">
+                <table class="table table-bordered table-sortable">
+                    <thead>
+                        <tr>
+                            <th class="table-secondary text-center" scope="col">
+                                Country <br> &#8645;</th>
+                            <th class="table-warning text-center" scope="col">
+                                New Cases <br> &#8645;</th>
+                            <th class="table-warning text-center" scope="col">
+                                Total Cases <br> &#8645;</th>
+                            <th class="table-primary text-center" scope="col">
+                                New Recoveries <br> &#8645;</th>
+                            <th class="table-primary text-center" scope="col">
+                                Total Recoveries <br> &#8645;</th>
+                            <th class="table-danger text-center" scope="col">
+                                New Deaths <br> &#8645;</th>
+                            <th class="table-danger text-center" scope="col">
+                                Total Deaths <br> &#8645;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let country of countries">
+                            <td class="table-secondary">
+                                <ul class="nav nav-pills">
+                                    <li>
+                                        <a 
+                                        class="nav-link" 
+                                        routerLink={{country.Country.Country}}>
+                                            {{ country.Country.Country }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="table-warning text-center">
+                                {{ country.Country.NewConfirmed }}</td>
+                            <td class="table-warning text-center">
+                                {{ country.Country.TotalConfirmed }}</td>
+                            <td class="table-primary text-center">
+                                {{ country.Country.NewRecovered }}</td>
+                            <td class="table-primary text-center">
+                                {{ country.Country.TotalRecovered }}</td>
+                            <td class="table-danger text-center">
+                                {{ country.Country.NewDeaths }}</td>
+                            <td class="table-danger text-center">
+                                {{ country.Country.TotalDeaths }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <footer>
+            <p> Data Sources: 
+                <a href='https://covid19api.com'>Covid-19 API / Johns Hopkins CSSE</a>
+                and
+                <a href='https://corona.lmao.ninja/v2/historical/all'>Corona Lmao Ninja</a>
+            </p>
+        </footer>
+    </body>
+</html>
+

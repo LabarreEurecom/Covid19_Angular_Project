@@ -1,0 +1,108 @@
+<html>
+    <body>
+        <header>
+            <div class="row">
+                <div class="text-left ">
+                    <button class="btn btn-info" (click)="covid19Service.signInWithGoogle()">
+                        Sign In with Google
+                    </button>
+                </div>
+
+                <h4>Add News</h4>
+
+                <div id="btn_to_change" class="text-right">
+                    <button class="btn btn-danger" 
+                    (click)=
+                    "covid19Service.signOut();
+                    covid19Service.goToHome()">
+                        Sign Out
+                    </button>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div id = "second_layer" class="row">
+                <div class="text-center">
+                    <button 
+                    class="btn btn-danger" 
+                    (click)="covid19Service.goToHome()">
+                    Return to Home
+                    </button>
+                </div>
+            </div> 
+            <form class="mt-5" (ngSubmit)="addNews()">
+                <div class="row mb-3">
+                    <div class="col-md-4-ml-4">
+                        <label for="dateInput">Date</label>
+                        <input 
+                        type="date" 
+                        id="dateInput" 
+                        name="dateInput" 
+                        class="form-control"
+                        [(ngModel)]="date"
+                        required
+                        />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="typeInput">Type</label>
+                        <input 
+                        id="typeInput" 
+                        name="typeInput" 
+                        class="form-control"
+                        placeholder="'countries' or 'worldwide'"
+                        [(ngModel)]="type"
+                        required
+                        />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="countryInput">Country (put no for worldwide)</label>
+                        <input  
+                        type="select"
+                        id="countryInput" 
+                        name="countryInput" 
+                        class="form-control"
+                        placeholder="What is the Country ?"
+                        [(ngModel)]="country_worldwide"
+                        required/>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-5">
+                        <label for="categoryInput">Category</label>
+                        <input 
+                        type="text" 
+                        id="categoryInput" 
+                        name="categoryInput" 
+                        class="form-control"
+                        placeholder="What field do you want to modify ?"
+                        [(ngModel)]="category"
+                        required
+                        />
+                    </div>
+                    <div class="col-md-5">
+                        <label for="amountInput">Figure</label>
+                        <input 
+                        type="number"
+                        id="amountInput" 
+                        name="amountInput" 
+                        class="form-control"
+                        placeholder="What is the figure ?"
+                        [(ngModel)]="amount"
+                        required
+                        />
+                    </div>
+                </div>
+                <div id = "add_btn" class="text-center">
+                    <button class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </main>
+        <footer>
+            <p> Data Sources: 
+                <a href='https://covid19api.com'>Covid-19 API / Johns Hopkins CSSE</a>
+                and
+                <a href='https://corona.lmao.ninja/v2/historical/all'>Corona Lmao Ninja</a>
+            </p>
+        </footer>
+    </body>
+</html>

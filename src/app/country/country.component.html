@@ -1,0 +1,110 @@
+<html>
+    <body>
+        <header>
+            <div class="row ">
+                <h2>{{country.Country.Country}}</h2>
+            </div>
+        </header>
+        <main>
+            <div id = "second_layer" class="row">
+                <div class="text-center">
+                    <button 
+                    class="btn btn-danger text-center" 
+                    (click)="covid19Service.goToHome()">
+                    Return to Home
+                    </button>
+                </div>
+            </div>
+            <div class="mt-4 mb-4 text-center">
+                <h1 class="mb-3">
+                    <img
+                    src="https://firebasestorage.googleapis.com/v0/b/covid19-f13aa.appspot.com/o/Favicon%20covid.jpg?alt=media&token=dca429bc-7c7a-49ab-94b4-48c7059ff98a"
+                    alt="covid favicon"
+                    height="60"
+                    width="60"
+                     />
+                    Covid-19 :</h1>
+                <h3 class="mb-3">
+                    Live Updates and Statistics :
+                </h3>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                <tr class="table-secondary">
+                    <th scope="col">Corona Virus Summary in {{country.Country.Country}}</th>
+                    <th class="text-center" scope="col">Figures</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="table-warning">
+                    <th scope="row">Total Cases</th>
+                    <td class="text-center">{{ (country.Country.TotalConfirmed)
+                        .toLocaleString('en-US', {maximumFractionDigits:2}) }}</td>
+                </tr>
+                <tr class="table-warning">
+                    <th scope="row">New Cases</th>
+                    <td class="text-center">{{ (country.Country.NewConfirmed)
+                        .toLocaleString('en-US', {maximumFractionDigits:2}) }}</td>
+                </tr>
+                <tr class="table-warning">
+                    <th scope="row">Active Cases</th>
+                    <td class="text-center">{{ (country.Country.TotalConfirmed - 
+                        country.Country.TotalRecovered)
+                        .toLocaleString('en-US', {maximumFractionDigits:2}) }}</td>
+                </tr>
+
+                <tr class="table-primary">
+                    <th scope="row">Total Recovered</th>
+                    <td class="text-center">{{ (country.Country.TotalRecovered)
+                        .toLocaleString('en-US', {maximumFractionDigits:2}) }}</td>
+                </tr>
+                <tr class="table-primary">
+                    <th scope="row">New Recovered</th>
+                    <td class="text-center">{{ (country.Country.NewRecovered)
+                        .toLocaleString('en-US', {maximumFractionDigits:2}) }}</td>
+                </tr>
+                <tr class="table-primary">
+                    <th scope="row">Recovery Rate</th>
+                    <td class="text-center">{{ (country.Country.TotalRecovered * 100 / 
+                        country.Country.TotalConfirmed).toFixed(2) }}%</td>
+                </tr>
+
+                <tr class="table-danger">
+                    <th scope="row">Total Deaths</th>
+                    <td class="text-center">{{ (country.Country.TotalDeaths)
+                        .toLocaleString('en-US', {maximumFractionDigits:2}) }}</td>
+                </tr>
+                <tr class="table-danger">
+                    <th scope="row">New Deaths</th>
+                    <td class="text-center">{{ (country.Country.NewDeaths)
+                        .toLocaleString('en-US', {maximumFractionDigits:2}) }}</td>
+                </tr>
+                <tr class="table-danger">
+                    <th scope="row">Mortality Rate</th>
+                    <td class="text-center">{{ (country.Country.TotalDeaths * 100 /
+                        country.Country.TotalConfirmed).toFixed(2) }}%</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div>
+                <canvas class="mt-5" id="pieChart"></canvas>
+            </div>
+
+            <div>
+                <canvas class="mt-5" id="barChart"></canvas>
+            </div>
+
+            <div>
+                <canvas class="mt-5" id="lineChart"></canvas>
+            </div>
+        </main>
+        <footer>
+            <p> Data Sources: 
+                <a href='https://covid19api.com'>Covid-19 API / Johns Hopkins CSSE</a>
+                and
+                <a href='https://corona.lmao.ninja/v2/historical/all'>Corona Lmao Ninja</a>
+            </p>
+        </footer>
+    </body>
+</html>
