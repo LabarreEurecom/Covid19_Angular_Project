@@ -15,6 +15,13 @@ What statistics are there ?
 - Table with Corona Virus Country Summary
 ![image](https://user-images.githubusercontent.com/76871369/109007107-1002bf00-76ac-11eb-8a73-5d8781b0e94f.png)
 
+Then we can click on a country name like this:
+![Sans titre](https://user-images.githubusercontent.com/76871369/109159490-f7aaa700-7774-11eb-8809-4a2f2d3a3e04.png)
+
+We are redirected to this page:
+![image](https://user-images.githubusercontent.com/76871369/109159770-4e17e580-7775-11eb-8afa-b213071711eb.png)
+
+In this page, we can see the same graph as above but for the specific country instead of worldwide.
  
 Add News is not functional: anyone who connects with google can access this component.
 
