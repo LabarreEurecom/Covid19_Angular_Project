@@ -106,39 +106,60 @@ export class CountryComponent implements OnInit {
                 label: "Daily Deaths",
                 backgroundColor: 'rgba(255, 99, 132, 0.6)',
                 data: [
+                    this.country_Deaths[this.country_Deaths.length-7] -
+                    this.country_Deaths[this.country_Deaths.length-8],
+                    this.country_Deaths[this.country_Deaths.length-6] -
                     this.country_Deaths[this.country_Deaths.length-7],
+                    this.country_Deaths[this.country_Deaths.length-5] -
                     this.country_Deaths[this.country_Deaths.length-6],
+                    this.country_Deaths[this.country_Deaths.length-4] -
                     this.country_Deaths[this.country_Deaths.length-5],
+                    this.country_Deaths[this.country_Deaths.length-3] -
                     this.country_Deaths[this.country_Deaths.length-4],
+                    this.country_Deaths[this.country_Deaths.length-2] -
                     this.country_Deaths[this.country_Deaths.length-3],
-                    this.country_Deaths[this.country_Deaths.length-2],
-                    this.country_Deaths[this.country_Deaths.length-1]
+                    this.country_Deaths[this.country_Deaths.length-1] -
+                    this.country_Deaths[this.country_Deaths.length-2]
                 ]
                 },
             {
                 label: "Daily Recovered",
                 backgroundColor: 'rgba(54, 162, 235, 0.6)',
                 data: [
+                    this.country_Recovered[this.country_Recovered.length-7] -
+                    this.country_Recovered[this.country_Recovered.length-8] ,
+                    this.country_Recovered[this.country_Recovered.length-6] -
                     this.country_Recovered[this.country_Recovered.length-7],
+                    this.country_Recovered[this.country_Recovered.length-5] -
                     this.country_Recovered[this.country_Recovered.length-6],
+                    this.country_Recovered[this.country_Recovered.length-4] -
                     this.country_Recovered[this.country_Recovered.length-5],
+                    this.country_Recovered[this.country_Recovered.length-3] -
                     this.country_Recovered[this.country_Recovered.length-4],
+                    this.country_Recovered[this.country_Recovered.length-2] -
                     this.country_Recovered[this.country_Recovered.length-3],
-                    this.country_Recovered[this.country_Recovered.length-2],
-                    this.country_Recovered[this.country_Recovered.length-1]
+                    this.country_Recovered[this.country_Recovered.length-1] -
+                    this.country_Recovered[this.country_Recovered.length-2]
                 ]
             },
             {
                 label: "Daily New Cases",
                 backgroundColor: 'rgba(255, 206, 86, 0.6)',
                 data: [
+                    this.country_Active[this.country_Active.length-7] -
+                    this.country_Active[this.country_Active.length-8]  ,
+                    this.country_Active[this.country_Active.length-6] -
                     this.country_Active[this.country_Active.length-7],
+                    this.country_Active[this.country_Active.length-5] -
                     this.country_Active[this.country_Active.length-6],
+                    this.country_Active[this.country_Active.length-4] -
                     this.country_Active[this.country_Active.length-5],
+                    this.country_Active[this.country_Active.length-3] -
                     this.country_Active[this.country_Active.length-4],
+                    this.country_Active[this.country_Active.length-2] -
                     this.country_Active[this.country_Active.length-3],
-                    this.country_Active[this.country_Active.length-2],
-                    this.country_Active[this.country_Active.length-1]
+                    this.country_Active[this.country_Active.length-1] -
+                    this.country_Active[this.country_Active.length-2]
                 ]
             }
         ]

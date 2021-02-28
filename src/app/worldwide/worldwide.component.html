@@ -20,6 +20,12 @@
         <main>
             <div id = "second_layer" class="row">
                 <div class="text-center">
+                    <h4> Click on "Update Data" button and refresh the page to view the data !</h4>
+                </div>
+            </div>
+            <! -- onclick="window.location.reload()" to refresh a page after a click -->
+            <div id = "third_layer" class="row">
+                <div class="text-center">
                     <button class="btn btn-info" 
                     (click)=
                     "covid19Service.loadingGlobalsWorldwideSummary(); 
@@ -118,8 +124,14 @@
                 <canvas class="mt-5" id="lineChart"></canvas>
             </div>
 
-            <div class=" mt-5">
-                <table class="table table-bordered table-sortable">
+            <div id="search_box" class=" mt-5">
+                <input 
+                id="inputValueID"
+                type="text" 
+                id="searchFilter" 
+                placeholder="Search for a country"
+                >
+                <table id="table_body" class="table table-bordered table-sortable">
                     <thead>
                         <tr>
                             <th class="table-secondary text-center" scope="col">
@@ -139,7 +151,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let country of countries">
+                        <tr  *ngFor="let country of countries">
                             <td class="table-secondary">
                                 <ul class="nav nav-pills">
                                     <li>
@@ -163,11 +175,11 @@
                                 {{ country.Country.NewDeaths }}</td>
                             <td class="table-danger text-center">
                                 {{ country.Country.TotalDeaths }}</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
         </main>
+
         <footer>
             <p> Data Sources: 
                 <a href='https://covid19api.com'>Covid-19 API / Johns Hopkins CSSE</a>

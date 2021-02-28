@@ -84,7 +84,7 @@ export class Covid19Service {
       this.afAuth.signOut();
       localStorage.removeItem("users");
       this.user = null;
-      //this.router.navigate(["worldwide"]);
+      this.router.navigate(["worldwide"]);
     }
 
     getCountryData(id: string): Observable<any> {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Covid19Service } from './covid19.service';
 
 @Injectable({
@@ -9,12 +9,12 @@ import { Covid19Service } from './covid19.service';
 })
 export class AuthGuard implements CanActivate {
   list: any;
+  public myData = new BehaviorSubject(false);
 
 
   constructor(
     private covid19Service: Covid19Service, 
-    private router: Router,
-    private firestore: AngularFirestore) {}
+    private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -24,18 +24,18 @@ export class AuthGuard implements CanActivate {
         this.router.navigate(["worldwide"]);
       }
 
-      //var docRef = this.firestore.collection("users").doc("Authorization");
-
       this.covid19Service.getAuthorizedUser()
         .subscribe((list) =>{
           this.list = list;
           for (let i=0; i<this.list.length; i++) {
             if (this.covid19Service.getUser().email == Object.values(this.list)[i]) {
               this.router.navigate(["add-news"]);
+              this.myData.next(true);
               return true;
             }
           }
           });
+          console.log("mydata",this.myData)
           //this.router.navigate(["worldwide"]); 
           // pb bcs return true not taken in account in the subscribe
       return true;

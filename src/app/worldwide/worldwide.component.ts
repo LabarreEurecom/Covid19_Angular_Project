@@ -74,6 +74,31 @@ export class WorldwideComponent implements OnInit {
             sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
         });
     });
+
+    /**
+     * Filter/search a HTML table.
+     */
+
+     const input = document.getElementById("searchFilter");
+     input.addEventListener("keyup",search);
+
+     function search() {
+         const inputVal = (<HTMLInputElement>input).value.toUpperCase(); 
+         console.log("inputVal",input)
+         const li = document.getElementsByTagName("li");
+         const row = document.getElementsByTagName("tr");
+
+         for (let i=0; i< li.length; i++) {
+             if (li[i].innerHTML.toUpperCase().includes(inputVal)) {
+                 // There are 11 tr HTML elements before tr elements of this table
+                 row[i+11].style.display = ""; 
+             }
+             else {
+                 row[i+11].style.display = "none";
+             }
+
+         }
+     }
         
     this.user = this.covid19Service.getUser();
     this.complete_globals_data = this.covid19Service.getGlobal();
@@ -260,17 +285,17 @@ export class WorldwideComponent implements OnInit {
             labels: Object.keys(this.complete_all_data.recovered) as any[],
             datasets: [
         {
-            label: "Daily Deaths",
+            label: "Total Deaths",
             backgroundColor: 'rgba(255, 99, 132, 0.6)',
             data: Object.values(this.complete_all_data.deaths) as number[]
             },
         {
-            label: "Daily Recovered",
+            label: "Total Recovered",
             backgroundColor: 'rgba(54, 162, 235, 0.6)',
             data: Object.values(this.complete_all_data.recovered) as number[]
         },
         {
-            label: "Daily New Cases",
+            label: "Total New Cases",
             backgroundColor: 'rgba(255, 206, 86, 0.6)',
             data: Object.values(this.complete_all_data.cases) as number[]
         }

@@ -29,12 +29,31 @@ button {
     height: 50px;
     text-align: center;
     justify-content: center;
-    background: rgb(194, 191, 186);
+    background: rgb(185, 182, 176);
     margin: auto;
+}
+
+#third_layer {
+  height: 50px;
+  text-align: center;
+  justify-content: center;
+  background: rgb(194, 191, 186);
+  margin: auto;
 }
 
 #btn_to_change {
   margin-right: 45px ;
+}
+
+#searchFilter {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/covid19-f13aa.appspot.com/o/baseline_search_black_18dp.png?alt=media&token=21a43696-860b-4847-b3de-6b7f4955a6f8'); /* Add a search icon to input */
+  background-position: 4px 6px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
 }
 
 footer {
