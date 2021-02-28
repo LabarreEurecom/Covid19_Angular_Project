@@ -27,7 +27,7 @@ For the table, we have a search filter text to find a country:
 
 ![image](https://user-images.githubusercontent.com/76871369/109435553-46796a80-7a1b-11eb-9e00-cbcc5b8b9406.png)
 
-How it works:
+How it works (not case-sensitive):
 
 ![image](https://user-images.githubusercontent.com/76871369/109435564-5a24d100-7a1b-11eb-963a-cddfd8eb58bb.png)
  
