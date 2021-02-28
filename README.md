@@ -27,7 +27,6 @@ Add News is not functional: anyone who connects with google can access this comp
 
 Improvements to do:
 
- - Improve the refresh (made the refresh data automatically when we get to the website).
+ - Improve the refresh (made the refresh data automatically when we get to the website). I know how to refresh the page after a click but I have to set a timer to let time for the data loading --> Added instruction on how to view data.
  - Fix the authorization pb (the add-news component).
- - Sort number with the english writing (for example: sort 88,888,888 type of number !!).
- - Add a research text zone for the table (in order to facilitate the retrieval of a country) -> not functional now.
+ - Sort number with the english writing (for example: sort 88,888,888 type of number !!)
